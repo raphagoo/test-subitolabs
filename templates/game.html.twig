@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bee Game</title>
+    <link rel="stylesheet" href="css/styles.css"> {# Ensure you have a styles.css or remove this line #}
+</head>
+<body>
+    <h1>Bee Game</h1>
+    <div>
+        <form action="{{ path('hit') }}" method="post">
+            <button type="submit">Hit Random Bee</button>
+        </form>
+    </div>
+    <ul>
+        {% if bees|filter(bee => bee.getHitPoints > 0)|length > 0 %}
+            {% for bee in bees %}
+                {% if bee.getHitPoints > 0 %}
+                    <li>
+                        {{ bee.getType }}: {{ bee.getHitPoints }} HP
+                        <div class="hp-bar-outer">
+                            <div class="hp-bar-inner" style="width: {{ (bee.getHitPoints / bee.getMaxHitPoints) * 100 }}%;"></div>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <li>No bees left.</li>
+        {% endif %}
+    </ul>
+</body>
+</html>
