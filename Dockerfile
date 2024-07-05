@@ -18,9 +18,6 @@ RUN apt-get update && apt-get install -y \
         intl \
         opcache
 
-# Set the working directory to Apache's document root
-WORKDIR /var/www/html
-
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_MEMORY_LIMIT -1
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

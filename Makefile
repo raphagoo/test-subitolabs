@@ -1,5 +1,4 @@
 MAKEFLAGS += --no-print-directory
-.PHONY: build up down restart logs shell clean
 
 build:
 	docker-compose build
@@ -17,8 +16,6 @@ vendor:	composer.lock
 
 down:
 	docker-compose down
-
-restart: down up
 
 logs:
 	docker-compose logs -f
