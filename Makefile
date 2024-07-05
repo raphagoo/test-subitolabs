@@ -5,10 +5,14 @@ build:
 
 up:
 	docker-compose up -d
+	@make vendor
 	@make links
 
 links:
 	@echo "App : http://localhost:8000"
+
+vendor:	composer.lock
+	docker-compose exec app composer install
 
 down:
 	docker-compose down

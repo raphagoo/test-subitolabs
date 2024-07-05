@@ -12,7 +12,7 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 RUN apt-get update && apt-get install -y \
         libicu-dev \
         git \
-        unzip \
+        zip \
     && docker-php-ext-install \
         pdo_mysql \
         intl \
@@ -21,17 +21,11 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory to Apache's document root
 WORKDIR /var/www/html
 
-# Copy the application code to the container
-COPY . .
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN chown -R www-data:www-data public
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
+ENV COMPOSER_MEMORY_LIMIT -1
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
-# Use Composer to install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
-
-# Adjust file permissions
-RUN chown -R www-data:www-data var \
-    && chown -R www-data:www-data public
