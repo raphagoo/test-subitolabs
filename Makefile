@@ -1,3 +1,4 @@
+MAKEFLAGS += --no-print-directory
 .PHONY: build up down restart logs shell clean
 
 build:
@@ -9,7 +10,7 @@ up:
 	@make links
 
 links:
-	@echo "App : http://localhost:8000"
+	@echo "---- App : http://localhost:8000 ----"
 
 vendor:	composer.lock
 	docker-compose exec app composer install

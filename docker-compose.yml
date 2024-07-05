@@ -6,4 +6,4 @@ services:
     volumes:
       - .:/var/www/html
     environment:
-      - APP_ENV=dev
+      - APP_ENV=prod
