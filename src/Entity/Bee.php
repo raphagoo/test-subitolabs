@@ -9,7 +9,7 @@ abstract class Bee
     {
     }
 
-    public function hit(): void
+    final public function hit(): void
     {
         $this->hitPoints -= $this->damage;
         if ($this->hitPoints < 0) {
@@ -17,17 +17,17 @@ abstract class Bee
         }
     }
 
-    public function isAlive(): bool
+    final public function isAlive(): bool
     {
         return $this->hitPoints > 0;
     }
 
-    public function getHitPoints(): int
+    final public function getHitPoints(): int
     {
         return $this->hitPoints;
     }
     
-    public function getMaxHitPoints(): int
+    final public function getMaxHitPoints(): int
     {
         return $this->maxHitPoints;
     }

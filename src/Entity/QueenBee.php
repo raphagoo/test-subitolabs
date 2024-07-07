@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class QueenBee extends Bee
+final class QueenBee extends Bee
 {
     public function __construct()
     {

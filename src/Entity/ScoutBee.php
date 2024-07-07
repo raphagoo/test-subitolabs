@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class ScoutBee extends Bee
+final class ScoutBee extends Bee
 {
     public function __construct()
     {

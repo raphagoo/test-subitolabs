@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y \
         git \
         zip \
     && docker-php-ext-install \
-        pdo_mysql \
         intl \
         opcache
 

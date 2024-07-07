@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class WorkerBee extends Bee
+final class WorkerBee extends Bee
 {
     public function __construct()
     {

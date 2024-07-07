@@ -9,7 +9,7 @@ use App\Service\GameService;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-class GameController extends AbstractController
+final class GameController extends AbstractController
 {
     private SessionInterface $session;
 

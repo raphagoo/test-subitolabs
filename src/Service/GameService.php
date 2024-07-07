@@ -7,7 +7,7 @@ use App\Entity\WorkerBee;
 use App\Entity\ScoutBee;
 use App\Entity\Bee;
 
-class GameService
+final class GameService implements GameServiceInterface
 {
 
     /**

@@ -12,8 +12,10 @@
             <button type="submit">Hit Random Bee</button>
         </form>
     </div>
+    <h2>Bees</h2>
     <ul>
         {% if bees|filter(bee => bee.getHitPoints > 0)|length > 0 %}
+            <p> {{ bees|filter(bee => bee.getHitPoints > 0)|length }} remaining bees</p>
             {% for bee in bees %}
                 {% if bee.getHitPoints > 0 %}
                     <li>
